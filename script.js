@@ -1,22 +1,19 @@
-/* ----------------------------------------------
-   PRELOADER
-----------------------------------------------*/
-window.onload = () => {
+/* PRELOADER */
+window.addEventListener("load", () => {
     setTimeout(() => {
-        document.getElementById("preloader").style.opacity = "0";
+        const preloader = document.getElementById("preloader");
+        preloader.style.opacity = "0";
         setTimeout(() => {
-            document.getElementById("preloader").style.display = "none";
+            preloader.style.display = "none";
         }, 600);
     }, 1200);
-};
+});
 
-/* ----------------------------------------------
-   CYBER THEME SWITCH
-----------------------------------------------*/
-const toggleBtn = document.getElementById("themeToggle");
+/* THEME SWITCH */
+const themeBtn = document.getElementById("themeToggle");
 const cyberLayer = document.getElementById("cyberTransition");
 
-toggleBtn.addEventListener("click", () => {
+themeBtn.addEventListener("click", () => {
     cyberLayer.style.opacity = 1;
 
     setTimeout(() => {
@@ -28,16 +25,41 @@ toggleBtn.addEventListener("click", () => {
     }, 700);
 });
 
-/* Apply theme variables dynamically */
-const observeTheme = new MutationObserver(() => {
-    if (document.body.classList.contains("light-theme")) {
-        document.documentElement.style.setProperty("--bg-dark", "var(--bg-light)");
-        document.documentElement.style.setProperty("--text-dark", "var(--text-light)");
-        document.documentElement.style.setProperty("--card-dark", "var(--card-light)");
-    } else {
-        document.documentElement.style.setProperty("--bg-dark", "#0b1120");
-        document.documentElement.style.setProperty("--text-dark", "#d7e3fc");
-        document.documentElement.style.setProperty("--card-dark", "rgba(255,255,255,0.05)");
-    }
+/* SCROLL-BASED REVEAL ANIMATIONS */
+const revealOnScroll = () => {
+    document.querySelectorAll(".fade-up, .fade-slide").forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            el.classList.add("revealed");
+        }
+    });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+// Run once on DOMContentLoaded so above-the-fold elements appear immediately
+document.addEventListener("DOMContentLoaded", revealOnScroll);
+
+/* PROJECT FILTERING */
+const projectItems = document.querySelectorAll(".timeline-item");
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        projectItems.forEach(item => {
+            const tags = item.dataset.category ? item.dataset.category.split(" ") : [];
+            if (filter === "all" || tags.includes(filter)) {
+                item.style.display = "block";
+                // Re-trigger reveal animation
+                item.classList.remove("revealed");
+                setTimeout(() => item.classList.add("revealed"), 50);
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
 });
-observeTheme.observe(document.body, { attributes: true });

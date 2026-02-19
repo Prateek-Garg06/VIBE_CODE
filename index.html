@@ -4,30 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prateek Garg – AI Engineer Portfolio</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- CYBER BOOT-UP PRELOADER -->
+<!-- PRELOADER -->
 <div id="preloader">
     <div class="loader-text">INITIALIZING SYSTEM...</div>
     <div class="loader-bar"></div>
 </div>
 
-<!-- CYBER GRID BACKGROUND -->
+<!-- CYBER GRID -->
 <div class="cyber-grid"></div>
 
-<!-- CYBER TRANSITION LAYER -->
+<!-- CYBER TRANSITION -->
 <div class="cyber-transition" id="cyberTransition"></div>
+
+<!-- FLOATING CYBER NAVBAR -->
+<nav class="cyber-nav">
+    <div class="nav-logo">PG</div>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
 <!-- THEME TOGGLE -->
 <button class="theme-switch" id="themeToggle">Toggle Theme</button>
 
-<!-- PAGE CONTENT -->
-<section id="hero">
-    <img src="./punpun.jpg" alt="Profile Picture">
+<!-- HERO -->
+<section id="hero" class="fade-up">
+    <img src="your-photo.png" alt="Profile Picture">
     <h1>Prateek Garg</h1>
     <p>AI Engineer • LLM Pipelines • RAG Systems • Multimodal Interaction</p>
 
@@ -38,7 +49,8 @@
 
 <div class="divider"></div>
 
-<section id="about">
+<!-- ABOUT -->
+<section id="about" class="fade-up">
     <h2>ABOUT ME</h2>
     <div class="cyber-card">
         <p>
@@ -51,7 +63,8 @@
 
 <div class="divider"></div>
 
-<section id="skills">
+<!-- SKILLS -->
+<section id="skills" class="fade-up">
     <h2>SKILLS</h2>
     <div class="skills-grid">
         <div class="skill-box">Python</div>
@@ -67,112 +80,93 @@
 
 <div class="divider"></div>
 
-<section id="projects">
+<!-- PROJECTS -->
+<section id="projects" class="fade-up">
     <h2>PROJECTS (TIMELINE)</h2>
+
+    <!-- PROJECT FILTER BAR -->
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="llm">LLM</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="agents">Agents</button>
+        <button class="filter-btn" data-filter="multi">Multimodal</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+    </div>
 
     <div class="timeline">
 
-        <!-- ORIGINAL 3 PROJECTS -->
+        <!-- EACH PROJECT NOW HAS A DATA-CATEGORY TAG -->
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="llm">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>Mini LLM Pipeline – Tokenizer + Data Processing</h3>
-                <p>
-                    Low-level text normalization and tokenization pipeline with regex preprocessing
-                    and custom vocabulary creation for LLM training.
-                </p>
+                <p>Custom tokenizer, vocab builder, and preprocessing pipeline for LLM datasets.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="agents llm">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>RAG-Based Multi-Agent System</h3>
-                <p>
-                    Multi-agent RAG architecture using LangChain + LangGraph with Supabase vector DB
-                    and controlled tool-access orchestration.
-                </p>
+                <p>Agent architecture with LangChain + LangGraph, Supabase tool-access, vector search.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="multi web">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>Voice-Based Real-Time AI Assistant</h3>
-                <p>
-                    WebSocket-based full-duplex speech system built with Gemini LLM and Deepgram ASR/TTS
-                    for real-time voice interaction.
-                </p>
+                <p>Full-duplex speech system using Gemini LLM + Deepgram ASR/TTS.</p>
             </div>
         </div>
 
-
-        <!-- NEW 6 ADVANCED PROJECTS -->
-
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="multi llm">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>Multimodal Search Engine (Vision + Text)</h3>
-                <p>
-                    Designed a cross-modal retrieval engine supporting text, images, and hybrid queries
-                    using unified embeddings and a dual-index semantic search layer.
-                </p>
+                <p>Unified embedding model powering cross-modal semantic search.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="llm web">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>Local On-Device AI Assistant (WebGPU)</h3>
-                <p>
-                    Deployed a quantized 1–3B parameter LLM running fully in-browser via WebGPU,
-                    featuring on-device reasoning, memory, and voice support.
-                </p>
+                <p>Browser-run LLM with quantization, memory, and speech interface.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="agents llm">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>Autonomous AI Research Agent</h3>
-                <p>
-                    Built a multi-step agent capable of planning, reading PDFs, summarizing,
-                    querying sources, and generating structured research reports with hallucination control.
-                </p>
+                <p>PDF reader, planner, summarizer with hallucination reduction logic.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="web tools">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
-                <h3>AI-Driven Predictive Analytics Dashboard</h3>
-                <p>
-                    Implemented an intelligent data dashboard with natural-language SQL generator,
-                    auto-insights, forecasting models, and explainability visualizations.
-                </p>
+                <h3>AI Predictive Analytics Dashboard</h3>
+                <p>Natural-language SQL, forecasting, and XAI visualizations.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="multi web">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>3D Voice-Controlled Interface (WebGL)</h3>
-                <p>
-                    Developed a futuristic 3D UI controlled entirely by speech through an LLM-driven
-                    command parser mapped to WebGL scene transformations.
-                </p>
+                <p>LLM command parser controlling WebGL scene transformations.</p>
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item fade-slide" data-category="tools llm">
             <div class="timeline-dot"></div>
             <div class="timeline-content cyber-card">
                 <h3>AI Code Reviewer + Auto-Refactor Tool</h3>
-                <p>
-                    Built a 4-stage code improvement pipeline (Lint → Analyze → Explain → Rewrite)
-                    with a diff-viewer and AST-aware prompt engineering.
-                </p>
+                <p>AST-enhanced LLM pipeline for bug detection, explanation, and code rewriting.</p>
             </div>
         </div>
 
@@ -181,15 +175,14 @@
 
 <div class="divider"></div>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="fade-up">
     <h2>CONTACT</h2>
     <div class="cyber-card contact-links">
-        <a href="mailto:prateek6garg6@gmail.com">Email</a>
+        <a href="/cdn-cgi/l/email-protection#750507140110101e431214071243351218141c195b161a18">Email</a>
         <a href="https://linkedin.com/in/punpun06">LinkedIn</a>
         <a href="https://github.com/">GitHub</a>
     </div>
 </section>
 
-<script src="script.js"></script>
-</body>
-</html>
+<scri
