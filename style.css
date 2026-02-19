@@ -146,6 +146,7 @@ body {
     border-bottom: 1px solid var(--border-cyber);
     z-index: 800;
     transition: background var(--transition-slow);
+    
 }
 
 body.light-theme .cyber-nav {
@@ -200,10 +201,9 @@ body.light-theme .cyber-nav {
 /* -------------------------------------------------
    THEME SWITCH
 ---------------------------------------------------*/
-.theme-switch {
-    position: fixed;
+.theme-switch { 
     top: 16px;
-    right: 25px;
+    right: unset;
     border: 1px solid var(--accent);
     color: var(--accent);
     background: transparent;
@@ -285,6 +285,9 @@ h1, h2 {
     border: 1px solid var(--border-cyber);
     background: var(--card-dark);
     backdrop-filter: blur(10px);
+    font-family: Quicksand;
+    font-size: 3vh;
+    line-height: 5vh;
     border-radius: 12px;
     padding: 24px;
     margin: 20px 0;
@@ -314,6 +317,15 @@ h1, h2 {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
 }
+
+.skill-category {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
 .skill-box {
     border: 1px solid var(--border-cyber);
     text-align: center;
