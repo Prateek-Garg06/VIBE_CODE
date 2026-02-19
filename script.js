@@ -1,13 +1,20 @@
 /* PRELOADER */
-window.addEventListener("load", () => {
+function hidePreloader() {
+    const preloader = document.getElementById("preloader");
+    if (!preloader || preloader.style.display === "none") return;
+    preloader.style.opacity = "0";
     setTimeout(() => {
-        const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        setTimeout(() => {
-            preloader.style.display = "none";
-        }, 600);
-    }, 1200);
+        preloader.style.display = "none";
+    }, 600);
+}
+
+// Try on DOMContentLoaded (doesn't wait for images/assets)
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(hidePreloader, 1200);
 });
+
+// Hard fallback: force-hide after 3s no matter what
+setTimeout(hidePreloader, 3000);
 
 /* THEME SWITCH */
 const themeBtn = document.getElementById("themeToggle");

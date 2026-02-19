@@ -82,6 +82,7 @@ body {
     flex-direction: column;
     z-index: 1000;
     transition: opacity 0.6s ease;
+    pointer-events: none; /* Don't block clicks after fade starts */
 }
 .loader-text {
     color: var(--accent);
