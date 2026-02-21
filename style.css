@@ -47,26 +47,6 @@ body {
     transition: background var(--transition-slow), color var(--transition-slow);
 }
 
-/* -------------------------------------------------
-   CYBER GRID BACKGROUND
----------------------------------------------------*/
-.cyber-grid {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image:
-        linear-gradient(rgba(102,252,241,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(102,252,241,0.07) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: gridFloat 22s linear infinite;
-    z-index: -1;
-    pointer-events: none;
-}
-@keyframes gridFloat {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(40px); }
-}
 
 /* -------------------------------------------------
    PRELOADER
@@ -110,6 +90,27 @@ body {
 @keyframes loadMove {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(200%); }
+}
+
+/* -------------------------------------------------
+   CYBER GRID BACKGROUND
+---------------------------------------------------*/
+.cyber-grid {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        linear-gradient(rgba(102,252,241,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102,252,241,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridFloat 22s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+@keyframes gridFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(40px); }
 }
 
 /* -------------------------------------------------
@@ -202,8 +203,9 @@ body.light-theme .cyber-nav {
    THEME SWITCH
 ---------------------------------------------------*/
 .theme-switch { 
-    top: 16px;
-    right: unset;
+    position: fixed;
+    top: 5rem;
+    right: 10px;
     border: 1px solid var(--accent);
     color: var(--accent);
     background: transparent;
